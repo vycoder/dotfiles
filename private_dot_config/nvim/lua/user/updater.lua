@@ -1,4 +1,3 @@
--- Configure AstroNvim updates
 return {
   remote = "origin", -- remote to use
   channel = "nightly", -- "stable" or "nightly"

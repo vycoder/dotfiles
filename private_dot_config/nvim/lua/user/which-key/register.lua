@@ -1,4 +1,3 @@
--- Add bindings which show up as group name
 return {
   -- first key is the mode, n == normal mode
   n = {

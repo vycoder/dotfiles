@@ -5,15 +5,11 @@ return {
     position = "left",
     width = 35,
   },
-  event_handlers = {
-    {
-      event = "after_render",
-      handler = function(_)
-        if vim.bo.filetype == "neo-tree" then
-          local status_ok, alpha = pcall(require, "alpha")
-          if status_ok then alpha.redraw() end
-        end
-      end,
+  filesystem = {
+    filtered_items = {
+      visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+      hide_dotfiles = false,
+      hide_gitignored = false,
     },
   },
 }

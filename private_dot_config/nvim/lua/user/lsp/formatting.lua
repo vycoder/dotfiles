@@ -8,13 +8,13 @@ return {
   },
   disabled = { -- disable formatting capabilities for the listed language servers
     -- "sumneko_lua",
-    "volar",
-    "tsserver",
+    -- "tsserver",
   },
   filter = function(client)
-    if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
-    if vim.bo.filetype == "typescript" then return client.name == "null-ls" end
+    if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" or vim.bo.filetype == "vue" then
+      return client.name == "null-ls"
+    end
     return true
   end,
-  timeout_ms = 1000, -- default format timeout
+  timeout_ms = 2000, -- default format timeout
 }

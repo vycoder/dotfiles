@@ -1,6 +1,13 @@
 return {
   ActiveLSP = "LSP:",
+  ArrowLeft = "<",
+  ArrowRight = ">",
   BufferClose = "x",
+  DapBreakpoint = "B",
+  DapBreakpointCondition = "C",
+  DapBreakpointRejected = "R",
+  DapLogPoint = "L",
+  DapStopped = ">",
   DefaultFile = "[F]",
   DiagnosticError = "X",
   DiagnosticHint = "?",
@@ -22,7 +29,10 @@ return {
   GitUnstaged = "[U]",
   GitUntracked = "[?]",
   MacroRecording = "Recording:",
-  NeovimClose = "X",
+  NeovimClose = "X", -- TODO v3: remove this icon
   Paste = "[PASTE]",
+  Search = "?",
+  Selected = "*",
   Spellcheck = "[SPELL]",
+  TabClose = "X",
 }

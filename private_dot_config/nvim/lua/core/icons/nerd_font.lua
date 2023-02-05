@@ -1,8 +1,15 @@
 return {
   ActiveLSP = "",
   ActiveTS = "綠",
+  ArrowLeft = "",
+  ArrowRight = "",
   BufferClose = "",
-  DefaultFile = "",
+  DapBreakpoint = "",
+  DapBreakpointCondition = "",
+  DapBreakpointRejected = "",
+  DapLogPoint = ".>",
+  DapStopped = "",
+  DefaultFile = "",
   Diagnostic = "裂",
   DiagnosticError = "",
   DiagnosticHint = "",
@@ -30,7 +37,10 @@ return {
   LSPLoading2 = "",
   LSPLoading3 = "",
   MacroRecording = "",
-  NeovimClose = "",
+  NeovimClose = "", -- TODO v3: remove this icon
   Paste = "",
+  Search = "",
+  Selected = "❯",
   Spellcheck = "暈",
+  TabClose = "",
 }

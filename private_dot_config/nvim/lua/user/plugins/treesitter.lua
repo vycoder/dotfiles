@@ -1,4 +1,4 @@
 return { -- overrides `require("treesitter").setup(...)`
   -- ensure_installed = { "lua" },
-  ensure_installed = { "css", "html", "javascript", "java", "rust", "vue", "lua" },
+  ensure_installed = { "css", "html", "javascript", "typescript", "java", "rust", "vue", "lua" },
 }

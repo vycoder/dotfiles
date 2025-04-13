@@ -125,22 +125,23 @@ ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 echo "🔗 Linked .zshrc"
 ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 echo "🔗 Linked .p10k.zsh"
-# ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
-# Add more symlinks as needed
+ln -sf "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
+echo "🔗 Linked .gitconfig"
 
 # Optionally create ~/.config and link config directories
 echo "🔩 Setting up .config directory..."
 mkdir -p ~/.config
 
-echo "🔗 Linked nvim configuration..."
+echo "🔗 Linking nvim configuration..."
 ln -sf "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
-echo "🔗 Linked kitty configuration..."
+nvim --headless -c 'quitall'
+echo "🔗 Linking kitty configuration..."
 ln -sf "$DOTFILES_DIR/.config/kitty" "$HOME/.config/kitty"
 
 ## Update the .desktop entry to point to the whiskers icon
 sed -i 's|^Icon=.*|Icon='"$HOME"'/.config/kitty/kitty.app.png|' ~/.local/share/applications/kitty.desktop
 
-echo "🔗 Linked nightfox themes"
+echo "🔗 Linking nightfox themes"
 ln -sf "$DOTFILES_DIR/.config/nightfox" "$HOME/.config/nightfox"
 
 echo "⚙️ Cleaning up.."
@@ -148,7 +149,7 @@ rm lazygit.tar.gz lazygit
 rm bottom_0.10.2-1_amd64.deb
 
 
-echo "✅ sofia-x Environment Setup Complete"
+echo "✅ sofia-x Environment Setup Complete..."
 ## Update desktop database
 update-desktop-database ~/.local/share/applications
 

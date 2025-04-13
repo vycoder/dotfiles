@@ -1,0 +1,10 @@
+[user]
+	name = yev
+	email = josephharveyangeles@gmail.com
+[core]
+	editor = vim
+[init]
+	defaultBranch = master
+[alias]
+	staash = stash --all
+	fush = push --force-with-lease

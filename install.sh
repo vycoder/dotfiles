@@ -30,12 +30,11 @@ nvm install 18 # set default node version
 
 # Neovim Install
 if ! command -v nvim >/dev/null || [[ "$(nvim --version | head -n1 | cut -d ' ' -f2)" < "0.10" ]]; then
- 	echo "🚀 Installing Neovim 0.10+"
-	sudo add-apt-repository ppa:neovim-ppa/unstable -y
-	sudo apt update
-	sudo apt install -y neovim
+  echo "🚀 Installing Neovim 0.10+"
+  sudo add-apt-repository ppa:neovim-ppa/unstable -y
+  sudo apt update
+  sudo apt install -y neovim
 fi
-
 
 echo "🚀 Installing Nerd Fonts..."
 ## Install nerdfonts, prerequisites for AstroNvim
@@ -54,7 +53,6 @@ rm /tmp/Hasklug.zip
 ## Refresh font cache
 fc-cache -fv
 
-
 echo "🚀 Installing Kitty Terminal..."
 # Kitty terminal installation
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -67,11 +65,9 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 sed -i "s|Icon=kitty|Icon=kitty-custom|g" ~/.local/share/applications/kitty.desktop
 sed -i "s|Icon=kitty|Icon=kitty-custom|g" ~/.local/share/applications/kitty-open.desktop
 
-
 ## Copy the .desktop file locally to modify it safely
 mkdir -p ~/.local/share/applications
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
-
 
 echo "🚀 Installing tree-sitter cli"
 npm install -g tree-sitter-cli
@@ -86,20 +82,17 @@ sudo install lazygit -D -t /usr/local/bin/
 curl -LO https://github.com/ClementTsang/bottom/releases/download/0.10.2/bottom_0.10.2-1_amd64.deb
 sudo dpkg -i bottom_0.10.2-1_amd64.deb
 
-
 echo "🚀 Installing Quasar CLI"
 npm install -g @quasar/cli
 npm install -g @quasar/icongenie
 
 npm install --global yarn
 
-
 echo "🔩 Setting up Colemak Keyboard Layout..."
 # Install Colemak Layout
 python3 -m pip install --user kalamine
 ## Compile and install the layout
 xkalamine install "$DOTFILES_DIR/.keyboard-layouts/colemak-dhk-matrix.toml"
-
 
 ## Set layout immediately
 setxkbmap us -variant ColemakDHKMatrix
@@ -117,7 +110,6 @@ if ! grep -q ColemakDHKMatrix "$EVDEV_XML"; then
         </variant>|}' "$EVDEV_XML"
 fi
 
-
 echo "🚀 Setting up dotfiles..."
 
 # Symlink dotfiles
@@ -133,21 +125,23 @@ echo "🔩 Setting up .config directory..."
 mkdir -p ~/.config
 
 echo "🔗 Linking nvim configuration..."
+rm -rf "$HOME/.config/nvim"
 ln -sf "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
 nvim --headless -c 'quitall'
 echo "🔗 Linking kitty configuration..."
+rm -rf "$HOME/.config/kitty"
 ln -sf "$DOTFILES_DIR/.config/kitty" "$HOME/.config/kitty"
 
 ## Update the .desktop entry to point to the whiskers icon
 sed -i 's|^Icon=.*|Icon='"$HOME"'/.config/kitty/kitty.app.png|' ~/.local/share/applications/kitty.desktop
 
 echo "🔗 Linking nightfox themes"
+rm -rf "$HOME/.config/nighfox"
 ln -sf "$DOTFILES_DIR/.config/nightfox" "$HOME/.config/nightfox"
 
 echo "⚙️ Cleaning up.."
 rm lazygit.tar.gz lazygit
 rm bottom_0.10.2-1_amd64.deb
-
 
 echo "✅ sofia-x Environment Setup Complete..."
 ## Update desktop database
@@ -155,4 +149,3 @@ update-desktop-database ~/.local/share/applications
 
 read -p "Press enter to reboot, or Ctrl+C to cancel..." _
 sudo reboot now
-

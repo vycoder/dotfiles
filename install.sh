@@ -31,9 +31,10 @@ nvm install 18 # set default node version
 # Neovim Install
 if ! command -v nvim >/dev/null || [[ "$(nvim --version | head -n1 | cut -d ' ' -f2)" < "0.10" ]]; then
  	echo "🚀 Installing Neovim 0.10+"
-	sudo add-apt-repository ppa:neovim-ppa/unstable -y
-	sudo apt update
-	sudo apt install -y neovim
+	curl -O https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz
+	tar -xvzf nvim-linux-x86_64.tar.gz
+	sudo mv nvim-linux-x86_64 /opt/nvim
+	rm -rf nvim-linux-x86_64
 fi
 
 

@@ -10,6 +10,12 @@ fi
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+PATH=$PATH:$ANDROID_SDK_ROOT/tools;
+PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools;
+PATH=$PATH:$HOME/bin;
+PATH="$PATH:/opt/nvim/bin"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
